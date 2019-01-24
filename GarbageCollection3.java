@@ -1,3 +1,5 @@
+package parth;
+
 class GarbageCollection3 {
 	
 	String name;
@@ -11,7 +13,8 @@ class GarbageCollection3 {
 		t1 = t2;
 		System.gc();
 	}
-
+        
+        @Override
 	protected void finalize() throws Throwable {
 		System.out.println(this.name + " successfully destroyed !!");
 	}
