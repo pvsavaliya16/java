@@ -20,14 +20,17 @@ class BasicThread implements Runnable {
 
 class ThreadExample {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         BasicThread bt = new BasicThread();
         Thread t = new Thread(bt);
         t.start();
-        Thread.sleep(1);
+	try {
+        	Thread.sleep(1);
+	} catch (InterruptedException e) {
+		e.printStackTrace();
+	}
         for (int i = 0; i < 1000; i++) {
             System.out.println("Processing...  Main thread");
         }
-
     }
 }
