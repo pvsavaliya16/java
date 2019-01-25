@@ -5,8 +5,8 @@ class BasicThread implements Runnable {
 
 
     public void run() {
-        for (int i = 0; i < 1000; i++) {
-            System.out.println("Processing...  BasicThread");
+        for (int i = 0; i < 20; i++) {
+            System.out.println("Processing...  BasicThread " + Thread.currentThread().getName());
         }
         /*	try {
 			Thread.sleep(5000);
@@ -20,17 +20,17 @@ class BasicThread implements Runnable {
 
 class ThreadExample {
 
-    public static void main(String[] args) {
-        BasicThread bt = new BasicThread();
-        Thread t = new Thread(bt);
-        t.start();
-	try {
-        	Thread.sleep(1);
-	} catch (InterruptedException e) {
-		e.printStackTrace();
-	}
-        for (int i = 0; i < 1000; i++) {
+    public static void main(String[] args) throws InterruptedException {
+        BasicThread bt1 = new BasicThread();
+        BasicThread bt2 = new BasicThread();
+
+        Thread t1 = new Thread(bt1);
+        Thread t2 = new Thread(bt2);        
+        t1.start();
+        t2.start();
+        for (int i = 0; i < 20; i++) {
             System.out.println("Processing...  Main thread");
         }
+
     }
 }
