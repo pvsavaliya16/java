@@ -1,19 +1,33 @@
-class NewThread implements Runnable {
-	
-	public void run() {
-		System.out.println("Processing..." + Thread.currentThread().getName());
-		try {
+// package parth;
+
+
+class BasicThread implements Runnable {
+
+
+    public void run() {
+        for (int i = 0; i < 1000; i++) {
+            System.out.println("Processing...  BasicThread");
+        }
+        /*	try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println("Processing done");
-	}
+			e.printStackTrace();*/
+    }
 }
 
+
+
+
 class ThreadExample {
-	public static void main(String[] args) {
-		Thread t1 = new Thread(new NewThread(),"parth");
-		t1.start();
-	}
+
+    public static void main(String[] args) throws Exception {
+        BasicThread bt = new BasicThread();
+        Thread t = new Thread(bt);
+        t.start();
+        Thread.sleep(1);
+        for (int i = 0; i < 1000; i++) {
+            System.out.println("Processing...  Main thread");
+        }
+
+    }
 }
