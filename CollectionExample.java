@@ -93,7 +93,7 @@ class CollectionExample {
 			int salary = d.getSalary();
 			System.out.println(emp);
 			if (!hm.containsKey(desName)) {
-				hm.put(desName, new Integer[]{salary, 1});
+				hm.put(desName, new Integer[]{salary, 1}); //0 index stores salary total and 1 index stores no. of people   ple
 			} else {
 				hm.put(desName, new Integer[]{ (hm.get(desName)[0] + salary), hm.get(desName)[1] + 1});
 			}
